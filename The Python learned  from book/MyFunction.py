@@ -43,3 +43,25 @@ def rank_num(*nums):
         tmp -= 1
     return tmp_nums
     # 上述函数中所有的 index 和 real_index 都可以用 tmp-1 表示，其中 index-1 可以写作 tmp-2
+
+
+def test_long(
+    bei,
+    jing,
+    huan,
+    ying,
+    nin,
+    wo,
+    zai,
+    bei_2,
+    jing_2,
+    hen,
+    xiang,
+    ni,
+    B=0,
+    J=0,
+    H=0,
+    Y=0,
+    N=0,
+):
+    print("北京欢迎你")

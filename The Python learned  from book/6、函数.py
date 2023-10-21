@@ -65,3 +65,31 @@ import MyFunction
 # Python读取这个文件时,将其中的所有函数都复制到这个程序中。
 # 当你使用函数时，应当使用：模块名.函数名() 的格式使用函数
 print(MyFunction.rank_num(26, 4, 97, 64, 5, 34, 94, 78, 12, 85, 6, 79, 422, 2, 3211))
+# 类似于C中的类
+
+# 导入特定的函数
+# from 模块名 import 函数名，函数名，函数名
+from MyFunction import SayHi, max
+
+# 像这样显式的导入，调用时就不需要写 模块名. 了，直接使用函数即可
+# 类似于C中的名称空间namespace
+# 使用如下语法：
+# from  模块  import *
+# 即可导入模块中的所有函数，且使用时无需使用 模块. （句点表示法）
+
+# 使用 as 给函数指定别名
+# from 模块 import 函数 as 新名称
+from MyFunction import rank_num as RKN
+
+# 这样，函数 rank_num 就可以用 RNK 来表示了
+# 适用于函数名很长或者是本文件中有同名函数防止混淆的情况
+
+# 使用 as 给模块指定别名
+# import 模块 as 别名
+import MyFunction as MF
+
+print(MyFunction.max(2, 56, 8, 7, 5, 456, 3, 484, 5798, 64))
+print(MF.rank_num(546, 97, 45, 23, 4, 1554, 89, 32, 964, 1, 32))
+# print(MyFunction.RKN(45,9566,23))
+# 如上，重命名的函数是不能使用句点表示法表示的，使用句点表示法必须使用函数的原名
+# 模板的原名和别名任意替换
