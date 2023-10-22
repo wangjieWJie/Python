@@ -31,7 +31,7 @@ with open(filename, "w") as file_write:
 count = 0  # 计数器，储存这次应该写入的次数编码
 FM_r_a = "file/a、add.txt"  # 这次操作的文件名
 with open(FM_r_a, "a") as none:  # 随便打开一下，主要是为了创建我想要的文件，创建完他就一点作用都没有了
-    1 + 1
+    pass  # 失败时一声不吭，使用pass
 
 with open(FM_r_a, "r") as FM_r:  # 用只读的模式打开这个文件，因为我不知道附加模式能不能读取
     for line_r in FM_r:  # 一行行的读取文件，看看里面有没有单行的数字
