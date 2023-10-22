@@ -82,3 +82,44 @@ class Palnt_Zombie(Zombie):
             self.frendly = True
         elif self.frendly_deegre < 0:
             self.frendly = False
+
+
+# 导入类和导入函数是一样的，可以通过直接导入模块来导入类，也可以单独导入一个或者几个类
+# 和函数一样，当你通过 from 导入，你的模板可以直接使用，而不需要句点表示法
+# 但是当你导入了一整个模块,你就需要使用句点表示法,
+# 但是这种方法也有好处,那就是模块中的函数和类永远都不会和你现在的文件中的函数和类发生冲突
+
+# 另: 你可以将一个模块导入进另一个模块,充分模块化
+
+
+# python 标准库:
+#
+# 有很多实用的类能大大提高代码效率
+# 比如 collections 中的 OrderedDict 类, 他的使用完全类似于字典, 但是不同的是,他可以记录键值对的顺序
+
+from collections import OrderedDict
+
+favorite_languages = OrderedDict()
+
+favorite_languages["jen"] = "python"
+favorite_languages["sarah"] = "c"
+favorite_languages["edward"] = "ruby"
+favorite_languages["phil"] = "python"
+
+for name, language in favorite_languages.items():
+    print(name.title() + "'s favorite language is " + language.title() + ".")
+
+
+# Python Module of the Week：要了解Python标准库，一个很不错的资源是网站Python Module of the Week。
+# 请访问http://pymotw.com/并查看其中的目录，在其中找一个你感兴趣的模块进行探索。
+
+
+# 最后请注意 关于 类的写法的 约定：
+# 类名应采用驼峰命名法，即将类名中的每个单词的首字母都大写，而不使用下划线。
+# 实例名和模块名都采用小写格式，并在单词之间加上下划线。
+# 对于每个类，都应紧跟在类定义后面包含一个文档字符串。这种文档字符串简要地描述类的功能，并遵循编写函数的文档字符串时采用的格式约定。
+# 每个模块也都应包含一个文档字符串，对其中的类可用于做什么进行描述。
+# 可使用空行来组织代码，但不要滥用。
+# 在类中，可使用一个空行来分隔方法；而在模块中，可使用两个空行来分隔类。
+# 需要同时导入标准库中的模块和你编写的模块时，先编写导入标准库模块的import语句，再添加一个空行，然后编写导入你自己编写的模块的import语句。
+# 在包含多条import语句的程序中，这种做法让人更容易明白程序使用的各个模块都来自何方
