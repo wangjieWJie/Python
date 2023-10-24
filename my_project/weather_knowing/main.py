@@ -43,7 +43,7 @@ for tmp_adr in may_addrass:
 print(addrass)
 
 # 文件储存位置
-file = "my_project/file/" + html
+file = "my_project/weather_knowing/file/" + html
 # 打开并读取文件
 with open(file, "r") as html_file:
     html_constents = html_file.read()
@@ -53,3 +53,6 @@ with open(file, "r") as html_file:
         if mark_time in tmp_consts:
             that_time = re.match("[0-9|:]+", tmp_consts)
             print(that_time)
+
+
+# 好像是因为文件字数太长了，read 不下来，应该分节输入
