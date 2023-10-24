@@ -9,3 +9,5 @@ class Settings:
         self.fight_screen_height = 480
         # 背景颜色，创建背景颜色的变量，储存背景的RGB颜色
         self.bg_color = (230, 230, 230)
+        # 因为我这个文件大环境是Python这个文件夹，所以python和PVZ之间的文件路径都要加上
+        self.file_adr = "my_project/game/PVZ/"
