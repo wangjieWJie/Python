@@ -57,7 +57,7 @@ class Guard:
         self.guard_rect.centery = self.screen_rect.centery
         self.guard_rect.left = self.screen_rect.left + 50
         # 守卫是否应该移动的标志
-        self.moving_right = False
+        self.moving_sign = "stop"
 
     # 在指定位置绘制守卫
     def put_guard(self):
@@ -65,19 +65,28 @@ class Guard:
         # 根据 guard_rect 指定的位置放置图片
 
     # 守卫的移动
-    def moving(self, event):
-        if event.type == pygame.KEYDOWN:
-            self.moving_right = True
-        if self.moving_right:
-            # 向右移动
-            if event.key == pygame.K_d:
-                self.guard_rect.left += 1
-            # 向左移动
-            elif event.key == pygame.K_a:
-                self.guard_rect.left -= 1
-            # 向上移动
-            elif event.key == pygame.K_w:
-                self.guard_rect.centery -= 1
-            # 向下移动
-            elif event.key == pygame.K_s:
-                self.guard_rect.centery += 1
+    def moving(self):
+        # 向右移动
+        if self.moving_sign == "right":
+            self.guard_rect.left += 1
+            print(
+                "x轴" + str(self.guard_rect.left) + "y轴" + str(self.guard_rect.centery)
+            )
+        # 向左移动
+        elif self.moving_sign == "left":
+            self.guard_rect.left -= 1
+            print(
+                "x轴" + str(self.guard_rect.left) + "y轴" + str(self.guard_rect.centery)
+            )
+        # 向上移动
+        elif self.moving_sign == "up":
+            self.guard_rect.centery -= 1
+            print(
+                "x轴" + str(self.guard_rect.left) + "y轴" + str(self.guard_rect.centery)
+            )
+        # 向下移动
+        elif self.moving_sign == "down":
+            self.guard_rect.centery += 1
+            print(
+                "x轴" + str(self.guard_rect.left) + "y轴" + str(self.guard_rect.centery)
+            )
