@@ -20,3 +20,9 @@ for suibian in range(5, 5):
     print("real Hello")
 # 两个 5 也不会
 # 但是(0 ,1) 会，因为里面有一个 0
+
+
+A = 5
+B = A
+B = 9
+print(A)

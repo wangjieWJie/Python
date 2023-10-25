@@ -50,14 +50,27 @@ class Guard:
         )
 
         # 获取守卫和屏幕的位置表示,返回一个类
+        # 只能获取或储存整数，所以要把它转换为float类型(新建一个变量 guard_center、guard_left)
         self.guard_rect = self.img_guard.get_rect()
         self.screen_rect = screen.get_rect()
 
         # 定位起始位置
         self.guard_rect.centery = self.screen_rect.centery
         self.guard_rect.left = self.screen_rect.left + 50
-        # 守卫是否应该移动的标志
-        self.moving_sign = "stop"
+
+        # 使其能添加小数,桥梁
+        self.guard_centery = float(self.guard_rect.centery)
+        self.guard_left = float(self.guard_rect.left)
+
+        # 守卫是否应该移动的标志 sign
+        # 之前我只设置了一个字符串变量作为标志，但是一次只能响应一个按键，所以没法急停和斜着走
+        self.moving_right = False
+        self.moving_left = False
+        self.moving_up = False
+        self.moving_down = False
+
+        #  守卫的移动速度
+        self.guard_speed = 10
 
     # 在指定位置绘制守卫
     def put_guard(self):
@@ -66,27 +79,19 @@ class Guard:
 
     # 守卫的移动
     def moving(self):
-        # 向右移动
-        if self.moving_sign == "right":
-            self.guard_rect.left += 1
-            print(
-                "x轴" + str(self.guard_rect.left) + "y轴" + str(self.guard_rect.centery)
-            )
+        # 向右移动                         # 全都使用 if 而是不 elif。防止同时按下两个按键时只能响应一个按键
+        if self.moving_right and self.guard_rect.right <= self.screen_rect.right:
+            self.guard_left += self.guard_speed
         # 向左移动
-        elif self.moving_sign == "left":
-            self.guard_rect.left -= 1
-            print(
-                "x轴" + str(self.guard_rect.left) + "y轴" + str(self.guard_rect.centery)
-            )
+        if self.moving_left and self.guard_left >= self.screen_rect.left:  # 或者写大于零
+            self.guard_left -= self.guard_speed
         # 向上移动
-        elif self.moving_sign == "up":
-            self.guard_rect.centery -= 1
-            print(
-                "x轴" + str(self.guard_rect.left) + "y轴" + str(self.guard_rect.centery)
-            )
+        if self.moving_up and self.guard_rect.top >= self.screen_rect.top:  # 或者写大于0
+            self.guard_centery -= self.guard_speed
         # 向下移动
-        elif self.moving_sign == "down":
-            self.guard_rect.centery += 1
-            print(
-                "x轴" + str(self.guard_rect.left) + "y轴" + str(self.guard_rect.centery)
-            )
+        if self.moving_down and self.guard_rect.bottom <= self.screen_rect.bottom:
+            self.guard_centery += self.guard_speed
+
+        # 更新gurad_rect以改变图片位置
+        self.guard_rect.centery = self.guard_centery
+        self.guard_rect.left = self.guard_left
