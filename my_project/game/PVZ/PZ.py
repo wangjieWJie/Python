@@ -1,14 +1,22 @@
 import pygame
 from setting import Settings
+from pygame.sprite import Sprite
+import random
 
 
 # 这个模板里面放着的是关于 僵尸和植物的属性的 类
-class Zombie:
+class Zombie(Sprite):
     def __init__(self, screen):
         # 初始化僵尸，并且设置其初始位置
         self.screen = screen  # 指定僵尸应该绘制到的地方
 
-        # 加载飞船图像并获取其外接矩形
+        # 调用super()来继承Sprite
+        super(Zombie, self).__init__()
+
+        # 僵尸的移速
+        self.zmb_speed = 0.005  # 0.005 的速度还是可以的
+
+        # 加载僵尸图像并获取其外接矩形
         setting_adr = Settings()
         self.img_head = pygame.image.load(
             setting_adr.file_adr + "file/simple_zmb/head.PNG"
@@ -27,16 +35,31 @@ class Zombie:
         # 要让游戏元素与屏幕边缘对齐，可使用属性top、bottom、left或right；
         # 要调整游戏元素的水平或垂直位置，可使用属性x和y，它们分别是相应矩形左上角的x和y坐标。
 
-        # 将每个新僵尸放置到最右边的中间
-        self.zmb_rect.centery = self.screen_rect.centery
+        # 生成僵尸的随机数
+        rand_adr = random.randint(
+            -(setting_adr.fight_screen_height - 100) / 2,
+            (setting_adr.fight_screen_height - 100) / 2,
+        )
+
+        # 将僵尸随机放置到最右边的一个位置，以中心线为基准，上下随机，但是排除最上面和最下面
+        self.zmb_rect.centery = self.screen_rect.centery + rand_adr
         # 表示僵尸图像的纵向的中心点的y坐标 等于 屏幕的纵向的中心点的y坐标
-        self.zmb_rect.right = self.screen_rect.right
+        self.zmb_rect.right = self.screen_rect.right  # + 50  # 使其出生在屏幕之外
         # 表示 僵尸右边缘的x坐标 等于 屏幕的最右边缘的x坐标
 
-    # 在指定位置绘制僵尸
+        # 设置储存位置的float类型变量
+        self.zmb_x = float(self.zmb_rect.right)
+
+    # 在指定位置绘制僵尸，同时移动
     def put_zmb(self):
+        self.zmb_moving()
         self.screen.blit(self.img_head, self.zmb_rect)
         # 根据 zmb_rect 指定的位置放置图片
+
+    # 僵尸的移动
+    def zmb_moving(self):
+        self.zmb_x -= self.zmb_speed
+        self.zmb_rect.right = self.zmb_x
 
 
 class Guard:

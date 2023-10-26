@@ -14,7 +14,7 @@ from realize import check_event, update_screen
 from pygame.sprite import Group
 
 
-# 删除看不见的子弹
+# 删除看不见了的子弹
 def bullet_delete(bullets, now_setting):
     for bullet in bullets:  # 书上使用的是 in bullets.copy() 我没有使用但是好像也可以正常删除没有问题
         if bullet.bullet_rect.x > now_setting.fight_screen_width:
@@ -42,7 +42,8 @@ def game():
     bullets = Group()
     # 我们将在alien_invasion.py中创建一个编组（group），用于存储所有有效的子弹，以便能够管理发射出去的所有子弹。
     # 这个编组将是pygame.sprite.Group类的一个实例；pygame.sprite.Group类 类似于列表，但提供了有助于开发游戏的额外功能。
-
+    # 创建一个用于储存僵尸的编组
+    zombies = Group()
     #
 
     #
@@ -51,9 +52,9 @@ def game():
         # 删除已经消失了的子弹
         bullet_delete(bullets, now_setting)
         # 捕获鼠标或者按键操作
-        check_event(fox, bullets, fight_screen)
+        check_event(fox, bullets, zombies, fight_screen)
         # 更新屏幕
-        update_screen(fight_screen, now_setting, s_zombie, fox, bullets)
+        update_screen(fight_screen, now_setting, zombies, fox, bullets)
 
 
 game()

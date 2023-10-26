@@ -16,13 +16,24 @@ class Settings:
         self.bg_color = (230, 230, 230)
         # 因为我这个文件大环境是Python这个文件夹，所以python和PVZ之间的文件路径都要加上
         self.file_adr = "my_project/game/PVZ/"
+        # 最大将僵尸数
+        self.zombie_max = 10
+        # 僵尸的生成间隔(单位:秒)
+        self.add_sleep = 8
+        # 第一只僵尸的出生日期
+        self.last_zmb_brithday = 0
+
+        # 记录第一只僵尸的出生日期
+
+    def set_zmb_brithday(self, time):
+        self.last_zmb_time = time
 
 
 # 设置子弹
 class Bullet(Sprite):
     def __init__(self, screen, guard):
         # 通过使用sprite，可将游戏中相关的元素编组，进而同时操作编组中的所有元素。
-        # 为创建子弹实例，需要向__init__()传递ai_settings、screen和ship实例，还调用了super()来继承Sprite。
+        # 为创建子弹实例，需要向__init__()传递screen和guard实例，还调用了super()来继承Sprite。
         super(Bullet, self).__init__()  # 可简写：把super后面括号里的参数删除
         self.screen = screen
 
