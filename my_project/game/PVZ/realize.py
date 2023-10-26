@@ -41,7 +41,8 @@ def check_event(guard, bullets, screen):
         guard.moving()
 
         # 创建子弹
-        bullet_shoot(event, guard, bullets, screen)
+        test_bullet = Bullet(screen, guard)  # 创建一个子弹类的子弹，以便于使用子弹类中各种参数
+        bullet_shoot(event, guard, test_bullet, bullets, screen)
 
 
 # 移动守卫的条件
@@ -84,10 +85,14 @@ def guard_stop(event, guard):
 
 
 # 创建子弹
-def bullet_shoot(event, guard, bullets, screen):
+def bullet_shoot(event, guard, bullet_text, bullets, screen):
     if event.type == pygame.KEYDOWN:
-        if event.key == pygame.K_SPACE:
+        if (
+            event.key == pygame.K_SPACE
+            and len(bullets) <= bullet_text.bullet_num_max  # 限制子弹数量
+        ):
             # 创建一个新的 bullet
             bullet_new = Bullet(screen, guard)
             # 将子弹加入到编组bullets中
             bullets.add(bullet_new)
+            print(len(bullets))

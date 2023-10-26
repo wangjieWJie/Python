@@ -30,9 +30,11 @@ class Bullet(Sprite):
         self.bullet_width = 15
         self.bullet_height = 5
         # 设置子弹的速度
-        self.bullet_speed = 1
+        self.bullet_speed = 0.25
         # 设置子弹颜色
         self.bullet_color = 60, 60, 60
+        # 限制子弹数量
+        self.bullet_num_max = 1  # 最大子弹数量为此值加一
 
         # 在(0,0)处创建一个表示子弹的矩形，Rect 函数表示子弹的属性,(0,0)是子弹左上角的坐标
         self.bullet_rect = pygame.Rect(0, 0, self.bullet_width, self.bullet_height)

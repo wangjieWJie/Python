@@ -14,6 +14,13 @@ from realize import check_event, update_screen
 from pygame.sprite import Group
 
 
+# 删除看不见的子弹
+def bullet_delete(bullets, now_setting):
+    for bullet in bullets:  # 书上使用的是 in bullets.copy() 我没有使用但是好像也可以正常删除没有问题
+        if bullet.bullet_rect.x > now_setting.fight_screen_width:
+            bullets.remove(bullet)
+
+
 def game():
     # 加载、倒入设置,创建类Settings类型的变量
     now_setting = Settings()
@@ -42,10 +49,7 @@ def game():
     # 开始循环
     while True:
         # 删除已经消失了的子弹
-        for bullet in bullets:
-            if bullet.bullet_rect.x > now_setting.fight_screen_width:
-                bullets.remove(bullet)
-            print(len(bullets))
+        bullet_delete(bullets, now_setting)
         # 捕获鼠标或者按键操作
         check_event(fox, bullets, fight_screen)
         # 更新屏幕
