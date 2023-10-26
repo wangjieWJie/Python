@@ -10,6 +10,9 @@ from PZ import Zombie, Guard
 # 各种游戏功能的实现
 from realize import check_event, update_screen
 
+# 用于创建各种编组
+from pygame.sprite import Group
+
 
 def game():
     # 加载、倒入设置,创建类Settings类型的变量
@@ -28,15 +31,25 @@ def game():
     s_zombie = Zombie(fight_screen)
     # 创建一个守卫类型的狐狸
     fox = Guard(fight_screen)
+    # 创建一个用于储存子弹的编组
+    bullets = Group()
+    # 我们将在alien_invasion.py中创建一个编组（group），用于存储所有有效的子弹，以便能够管理发射出去的所有子弹。
+    # 这个编组将是pygame.sprite.Group类的一个实例；pygame.sprite.Group类 类似于列表，但提供了有助于开发游戏的额外功能。
+
     #
 
     #
     # 开始循环
     while True:
+        # 删除已经消失了的子弹
+        for bullet in bullets:
+            if bullet.bullet_rect.x > now_setting.fight_screen_width:
+                bullets.remove(bullet)
+            print(len(bullets))
         # 捕获鼠标或者按键操作
-        check_event(fox)
+        check_event(fox, bullets, fight_screen)
         # 更新屏幕
-        update_screen(fight_screen, now_setting, s_zombie, fox)
+        update_screen(fight_screen, now_setting, s_zombie, fox, bullets)
 
 
 game()

@@ -1,7 +1,7 @@
 # 创建一个设置类
 # 用于整合所有的设置，和设置的参数
 
-from pygame.sprite import _Group, Sprite
+from pygame.sprite import Sprite
 import pygame
 
 
@@ -19,40 +19,42 @@ class Settings:
 
 
 # 设置子弹
-class Buttet(Sprite):
+class Bullet(Sprite):
     def __init__(self, screen, guard):
         # 通过使用sprite，可将游戏中相关的元素编组，进而同时操作编组中的所有元素。
         # 为创建子弹实例，需要向__init__()传递ai_settings、screen和ship实例，还调用了super()来继承Sprite。
-        super(Buttet, self).__init__()  # 可简写：把super后面括号里的参数删除
+        super(Bullet, self).__init__()  # 可简写：把super后面括号里的参数删除
         self.screen = screen
 
         # 设置子弹的宽和高
-        self.buttet_width = 3
-        self.buttet_height = 15
+        self.bullet_width = 15
+        self.bullet_height = 5
         # 设置子弹的速度
-        self.buttet_speed = 5
+        self.bullet_speed = 1
         # 设置子弹颜色
-        self.buttet_color = 60, 60, 60
+        self.bullet_color = 60, 60, 60
 
         # 在(0,0)处创建一个表示子弹的矩形，Rect 函数表示子弹的属性,(0,0)是子弹左上角的坐标
-        self.buttet_rect = pygame.Rect(0, 0, self.buttet_width, self.buttet_height)
+        self.bullet_rect = pygame.Rect(0, 0, self.bullet_width, self.bullet_height)
         # 设置发射位置
-        self.buttet_rect.centery = guard.guard_rect.centery
-        self.buttet_rect.right = guard.guard_rect.right
+        self.bullet_rect.centery = guard.guard_rect.centery
+        self.bullet_rect.right = guard.guard_rect.right
 
         # 因为子弹应该是向右直线发射的，所以只需要改变子弹的 x 坐标即可
         # 储存用小数表示的子弹位置：
-        self.buttet_x = float(self.buttet_rect.x)
+        self.bullet_x = float(self.bullet_rect.x)
 
     # 让子弹自己移动
-    def buttet_moving(self):
+    def bullet_moving(self):
         # 改变x坐标
-        self.buttet_x += self.buttet_speed
+        self.bullet_x += self.bullet_speed
         # 更新子弹的x坐标
-        self.buttet_rect.x = self.buttet_x
+        self.bullet_rect.x = self.bullet_x
 
     # 在屏幕上绘制子弹：
-    def buttet_draw(self):
-        pygame.draw.rect(self.screen, self.buttet_color, self.buttet_rect)
+    def bullet_draw(self):
+        pygame.draw.rect(self.screen, self.bullet_color, self.bullet_rect)
         #                  surface         颜色                  位置
         # 函数draw.rect()使用存储在self.color中的颜色填充表示子弹的rect占据的屏幕部分
+        # 顺便让他动起来吧
+        self.bullet_moving()
