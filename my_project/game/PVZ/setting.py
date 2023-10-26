@@ -48,25 +48,25 @@ class Bullet(Sprite):
         self.bullet_num_max = 1  # 最大子弹数量为此值加一
 
         # 在(0,0)处创建一个表示子弹的矩形，Rect 函数表示子弹的属性,(0,0)是子弹左上角的坐标
-        self.bullet_rect = pygame.Rect(0, 0, self.bullet_width, self.bullet_height)
+        self.rect = pygame.Rect(0, 0, self.bullet_width, self.bullet_height)
         # 设置发射位置
-        self.bullet_rect.centery = guard.guard_rect.centery
-        self.bullet_rect.right = guard.guard_rect.right
+        self.rect.centery = guard.rect.centery
+        self.rect.right = guard.rect.right
 
         # 因为子弹应该是向右直线发射的，所以只需要改变子弹的 x 坐标即可
         # 储存用小数表示的子弹位置：
-        self.bullet_x = float(self.bullet_rect.x)
+        self.bullet_x = float(self.rect.x)
 
     # 让子弹自己移动
     def bullet_moving(self):
         # 改变x坐标
         self.bullet_x += self.bullet_speed
         # 更新子弹的x坐标
-        self.bullet_rect.x = self.bullet_x
+        self.rect.x = self.bullet_x
 
     # 在屏幕上绘制子弹：
     def bullet_draw(self):
-        pygame.draw.rect(self.screen, self.bullet_color, self.bullet_rect)
+        pygame.draw.rect(self.screen, self.bullet_color, self.rect)
         #                  surface         颜色                  位置
         # 函数draw.rect()使用存储在self.color中的颜色填充表示子弹的rect占据的屏幕部分
         # 顺便让他动起来吧

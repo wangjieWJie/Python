@@ -14,13 +14,6 @@ from realize import check_event, update_screen
 from pygame.sprite import Group
 
 
-# 删除看不见了的子弹
-def bullet_delete(bullets, now_setting):
-    for bullet in bullets:  # 书上使用的是 in bullets.copy() 我没有使用但是好像也可以正常删除没有问题
-        if bullet.bullet_rect.x > now_setting.fight_screen_width:
-            bullets.remove(bullet)
-
-
 def game():
     # 加载、倒入设置,创建类Settings类型的变量
     now_setting = Settings()
@@ -49,12 +42,30 @@ def game():
     #
     # 开始循环
     while True:
-        # 删除已经消失了的子弹
-        bullet_delete(bullets, now_setting)
         # 捕获鼠标或者按键操作
         check_event(fox, bullets, zombies, fight_screen)
         # 更新屏幕
         update_screen(fight_screen, now_setting, zombies, fox, bullets)
+        # 检查更新子弹
+        update_bullet(bullets, zombies, now_setting)
 
 
+# 删除看不见了的子弹
+def bullet_delete(bullets, now_setting):
+    for bullet in bullets.copy():  # 书上使用的是 in bullets.copy() 我没有使用但是好像也可以正常删除没有问题
+        if bullet.rect.x > now_setting.fight_screen_width:
+            bullets.remove(bullet)
+
+
+def update_bullet(bullets, zombies, now_setting):
+    # 删除已经消失了的子弹
+    bullet_delete(bullets, now_setting)
+    # 检测子弹和僵尸的碰撞，并删除子弹或者僵尸
+    hit = pygame.sprite.groupcollide(bullets, zombies, True, True)
+    # sprite提供的groupcollide函数能够检测两个编组中的每个surface是否碰撞，并且返回一个以子弹为键、以僵尸为值的字典
+    # 在这个字典中，每个值都是被子弹击中的僵尸
+    # 函数最后俩个参数分别代表是否将击中僵尸的bullet和被子弹击中的zombie在他们所在的编组中删除
+
+
+# 游戏主体
 game()
