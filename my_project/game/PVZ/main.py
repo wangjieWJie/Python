@@ -89,7 +89,7 @@ def start_game(
     while True:
         # 如果游戏开始
         # 捕获鼠标或者按键操作
-        check_event(fox, bullets, zombies, fight_screen)
+        check_event(fox, bullets, zombies, fight_screen, now_setting)
         # 生成僵尸
         add_zombie(zombies, fight_screen, now_setting, achievement)
         # 检查更新子弹

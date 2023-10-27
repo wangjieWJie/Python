@@ -26,7 +26,9 @@ class Settings:
         # 第一只僵尸的出生日期
         self.last_zmb_brithday = 0
         # 子弹伤害
-        self.bullet_ATK = 20
+        self.bullet_ATK = 34
+        # 最多子弹数量
+        self.bullet_num_max = 1
         # 僵尸伤害
         self.zombie_ATK = 49
         # 守卫无敌时间,伤害免疫
@@ -56,8 +58,8 @@ class Bullet(Sprite):
         self.bullet_speed = 0.25
         # 设置子弹颜色
         self.bullet_color = 60, 60, 60
-        # 限制子弹数量
-        self.bullet_num_max = 1  # 最大子弹数量为此值加一
+        # # 限制子弹数量
+        # self.bullet_num_max = 1  # 最大子弹数量为此值加一
 
         # 在(0,0)处创建一个表示子弹的矩形，Rect 函数表示子弹的属性,(0,0)是子弹左上角的坐标
         self.rect = pygame.Rect(0, 0, self.bullet_width, self.bullet_height)
@@ -128,7 +130,7 @@ class Button:
 class Achievement:
     def __init__(self) -> None:
         # 得分
-        self.score = 90
+        self.score = 0
         # 最高分
         self.score_max = 0
         # 杀敌数
@@ -138,11 +140,14 @@ class Achievement:
         # 等级
         self.level = 1
 
-    # 重置分数、杀敌数和等级
+    # 重置分数、杀敌数和等级,记录最高分、总杀敌数
     def reset_score(self):
         self.score = 0
         self.killed_zombies = 0
         self.level = 1
+        self.killed_zombies += self.all_killed
+        if self.score > self.score_max:
+            self.score_max = self.score
 
 
 # 分数显示

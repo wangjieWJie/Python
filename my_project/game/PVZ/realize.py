@@ -91,7 +91,7 @@ def harder(achievement, zombies):
 
 
 # 接收鼠标和键盘的各种操作的函数
-def check_event(guard, bullets, zombies, screen):
+def check_event(guard, bullets, zombies, screen, setting):
     # 相应按键和鼠标事件
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -107,7 +107,7 @@ def check_event(guard, bullets, zombies, screen):
 
         # 创建子弹
         test_bullet = Bullet(screen, guard)  # 创建一个子弹类的子弹，以便于使用子弹类中各种参数
-        bullet_shoot(event, guard, test_bullet, bullets, screen)
+        bullet_shoot(event, guard, setting, bullets, screen)
 
 
 # 移动守卫的条件
@@ -142,11 +142,11 @@ def guard_stop(event, guard):
 
 
 # 创建子弹
-def bullet_shoot(event, guard, bullet_text, bullets, screen):
+def bullet_shoot(event, guard, setting, bullets, screen):
     if event.type == pygame.KEYDOWN:
         if (
             event.key == pygame.K_SPACE
-            and len(bullets) <= bullet_text.bullet_num_max  # 限制子弹数量
+            and len(bullets) <= setting.bullet_num_max  # 限制子弹数量
         ):
             # 创建一个新的 bullet
             bullet_new = Bullet(screen, guard)
@@ -211,6 +211,8 @@ def update_achievement(achievement, see_achievement, setting):
     achievement.killed_zombies += 1
     achievement.score += setting.zombie_value
     achievement.level = int(achievement.killed_zombies / 5) + 1
+    # 守卫升级
+    setting.bullet_num_max = achievement.level + 1
 
     # 更新计分面板
     see_achievement.update_score(
@@ -241,3 +243,8 @@ def kill_you(now_setting, zombies):
         if a_zombie.rect.right < 0:
             now_setting.if_game = False
             print("over")
+
+
+# 等待进入游戏时的分数显示
+def see_score_waitting():
+    
