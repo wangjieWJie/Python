@@ -22,6 +22,12 @@ class Settings:
         self.add_sleep = 8
         # 第一只僵尸的出生日期
         self.last_zmb_brithday = 0
+        # 子弹伤害
+        self.bullet_ATK = 20
+        # 僵尸伤害
+        self.zombie_ATK = 50
+        # 守卫无敌时间,伤害免疫
+        self.injury_immunity = 3
 
         # 记录第一只僵尸的出生日期
 
@@ -46,6 +52,8 @@ class Bullet(Sprite):
         self.bullet_color = 60, 60, 60
         # 限制子弹数量
         self.bullet_num_max = 1  # 最大子弹数量为此值加一
+        # 子弹伤害
+        self.buttet_ATK = 50
 
         # 在(0,0)处创建一个表示子弹的矩形，Rect 函数表示子弹的属性,(0,0)是子弹左上角的坐标
         self.rect = pygame.Rect(0, 0, self.bullet_width, self.bullet_height)

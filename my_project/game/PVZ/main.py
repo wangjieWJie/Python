@@ -48,6 +48,15 @@ def game():
         update_screen(fight_screen, now_setting, zombies, fox, bullets)
         # 检查更新子弹
         update_bullet(bullets, zombies, now_setting)
+        # 结束游戏
+        over_game(now_setting, zombies, fox, bullets)
+
+
+def update_bullet(bullets, zombies, now_setting):
+    # 删除已经消失了的子弹
+    bullet_delete(bullets, now_setting)
+    # 扣除僵尸血量并杀死他们
+    hit_zombies(bullets, zombies, now_setting)
 
 
 # 删除看不见了的子弹
@@ -57,14 +66,31 @@ def bullet_delete(bullets, now_setting):
             bullets.remove(bullet)
 
 
-def update_bullet(bullets, zombies, now_setting):
-    # 删除已经消失了的子弹
-    bullet_delete(bullets, now_setting)
+# 扣除僵尸血量并杀死他们
+def hit_zombies(bullets, zombies, now_setting):
     # 检测子弹和僵尸的碰撞，并删除子弹或者僵尸
-    hit = pygame.sprite.groupcollide(bullets, zombies, True, True)
+    # pygame.sprite.groupcollide（）–两个精灵组中所有精灵的碰撞检测
+    # hit = pygame.sprite.groupcollide(bullets, zombies, True, False)
     # sprite提供的groupcollide函数能够检测两个编组中的每个surface是否碰撞，并且返回一个以子弹为键、以僵尸为值的字典
     # 在这个字典中，每个值都是被子弹击中的僵尸
     # 函数最后俩个参数分别代表是否将击中僵尸的bullet和被子弹击中的zombie在他们所在的编组中删除
+    for zombie_sprite in zombies.copy():
+        # pygame.sprite.spritecollide() —判断某个精灵和指定精灵组中的精灵的碰撞,Ture表示，如果发生碰撞，则移除指定精灵组中的精灵
+        hit = pygame.sprite.spritecollide(zombie_sprite, bullets, True)
+        if hit:
+            zombie_sprite.zmb_blood -= now_setting.bullet_ATK
+            if zombie_sprite.zmb_blood <= 0:
+                zombies.remove(zombie_sprite)
+
+
+# 结束游戏
+def over_game(now_setting, zombies, fox, bullets):
+    # 更新守卫血量
+    fox_hit = pygame.sprite.spritecollide(fox, zombies, False)
+    if fox_hit:
+        fox.guard_blood -= now_setting.zombie_ATK
+        if fox.guard_blood <= 0:
+            print("game over")
 
 
 # 游戏主体

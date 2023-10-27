@@ -60,20 +60,16 @@ def guard_moving(event, guard):
         # 向右移动
         if event.key == pygame.K_d:
             guard.moving_right = True
-            print("右kick")
         # 向左移动
         if event.key == pygame.K_a:
             guard.moving_left = True  #  全都使用 if 而是不 elif。防止同时按下两个按键时只能响应一个按键
-            print("左kick")
         # 向上移动
         if event.key == pygame.K_w:
             guard.moving_up = True
-            print("上kick")
 
         # 向下移动
         if event.key == pygame.K_s:
             guard.moving_down = True
-            print("下kick")
 
 
 # 按键抬起时停止移动的条件
@@ -81,16 +77,12 @@ def guard_stop(event, guard):
     if event.type == pygame.KEYUP:
         if event.key == pygame.K_d:
             guard.moving_right = False
-            print("右up")
         elif event.key == pygame.K_a:
             guard.moving_left = False  # 不需要全部使用if，因为两个按键不可能同时松开，即同时处于松开的状态
-            print("左up")
         elif event.key == pygame.K_w:  # 因为他们是两个不同的事件
             guard.moving_up = False
-            print("上up")
         elif event.key == pygame.K_s:
             guard.moving_down = False
-            print("下up")
 
 
 # 创建子弹
@@ -104,8 +96,6 @@ def bullet_shoot(event, guard, bullet_text, bullets, screen):
             bullet_new = Bullet(screen, guard)
             # 将子弹加入到编组bullets中
             bullets.add(bullet_new)
-            print("当前子弹数量: " + str(len(bullets)))
-            print("当前时间: " + str(time.time()))
 
 
 # 绘制僵尸

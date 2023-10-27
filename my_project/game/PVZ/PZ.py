@@ -1,3 +1,4 @@
+# 存储rect类的变量他就只能叫rect，不然groupgroupcollide（）函数他就不能用
 import pygame
 from setting import Settings
 from pygame.sprite import Sprite
@@ -15,6 +16,10 @@ class Zombie(Sprite):
 
         # 僵尸的移速
         self.zmb_speed = 0.005  # 0.005 的速度还是可以的
+        # 僵尸血量
+        self.zmb_blood = 100
+        # 死亡证明
+        self.killed_judge = False
 
         # 加载僵尸图像并获取其外接矩形
         setting_adr = Settings()
@@ -89,9 +94,10 @@ class Guard:
         self.moving_left = False
         self.moving_up = False
         self.moving_down = False
-
         #  守卫的移动速度
         self.guard_speed = 10
+        # 守卫血量
+        self.guard_blood = 100
 
     # 在指定位置绘制守卫
     def put_guard(self):
