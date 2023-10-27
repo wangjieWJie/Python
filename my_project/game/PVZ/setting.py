@@ -16,8 +16,8 @@ class Settings:
         self.bg_color = (230, 230, 230)
         # 因为我这个文件大环境是Python这个文件夹，所以python和PVZ之间的文件路径都要加上
         self.file_adr = "my_project/game/PVZ/"
-        # 最大将僵尸数
-        self.zombie_max = 10
+        # 最大僵尸数
+        self.zombie_max = 5
         # 僵尸的生成间隔(单位:秒)
         self.add_sleep = 8
         # 第一只僵尸的出生日期
@@ -25,10 +25,13 @@ class Settings:
         # 子弹伤害
         self.bullet_ATK = 20
         # 僵尸伤害
-        self.zombie_ATK = 50
+        self.zombie_ATK = 49
         # 守卫无敌时间,伤害免疫
         self.injury_immunity = 3
-
+        # 守卫上次受伤时间
+        self.guard_injury_time = 0
+        # 游戏结束的标志
+        self.if_game = False
         # 记录第一只僵尸的出生日期
 
     def set_zmb_brithday(self, time):
@@ -79,3 +82,63 @@ class Bullet(Sprite):
         # 函数draw.rect()使用存储在self.color中的颜色填充表示子弹的rect占据的屏幕部分
         # 顺便让他动起来吧
         self.bullet_moving()
+
+
+# 设置按钮类
+class Button:
+    def __init__(self, setting, screen, msg):
+        self.setting = setting
+        self.screen = screen
+        self.screen_rect = screen.get_rect()
+        # 设置按钮宽度和高度
+        self.width, self.height = 200, 50
+        # 设置按钮颜色
+        self.button_color = (214, 195, 192)
+        # 设置文本颜色
+        self.text_color = (255, 255, 255)
+        # 设置文本字体和字号，None则默认字体
+        self.font = pygame.font.SysFont(None, 48)
+
+        # 设置按钮位置
+        self.rect = pygame.Rect(  # 我也不知道为什么除以二，但是他确实居中了，我是个天才
+            self.screen_rect.centerx - self.width / 2,
+            self.screen_rect.centery - self.height / 2,
+            self.width,
+            self.height,
+        )  # 一般位置都是后调的，直接使用center即可
+
+        # 将 msg 渲染成图片,True 表示开启标签反锯齿功能，如果没有指定背景色(按钮颜色)，Pygame将以透明背景的方式渲染文本）
+        self.msg_img = self.font.render(msg, True, self.text_color, self.button_color)
+        # 设置文本的位置
+        self.msg_img_rect = self.msg_img.get_rect()
+        self.msg_img_rect.center = self.rect.center
+
+        # 绘制按钮
+
+    def draw_button(self):
+        if self.setting.if_game == False:
+            # 在屏幕上绘制按钮：    按钮颜色       按钮位置
+            self.screen.fill(self.button_color, self.rect)  # 用颜色填充区域
+            # 在按钮上绘制文字
+            self.screen.blit(self.msg_img, self.msg_img_rect)  # 用图形填充区域
+
+
+# 成就系统
+class Achievement:
+    def __init__(self) -> None:
+        # 得分
+        self.score = 0
+        # 最高分
+        self.score_max = 0
+        # 杀敌数
+        self.killed_zombies = 0
+        # 总杀敌数
+        self.all_killed = 0
+        # 等级
+        self.level = 1
+
+    # 重置分数、杀敌数和等级
+    def reset_score(self):
+        self.score = 0
+        self.killed_zombie = 0
+        self.level = 1

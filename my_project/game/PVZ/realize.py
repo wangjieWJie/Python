@@ -5,7 +5,7 @@ import pygame
 import sys
 
 # 子弹的类, 以及设置
-from setting import Bullet
+from setting import Bullet, Achievement
 
 # 僵尸的类
 from PZ import Zombie
@@ -14,24 +14,75 @@ from PZ import Zombie
 import time
 
 
+# 等待游戏开始
+def wait_play(now_setting, fight_screen, play_button):
+    # 检查鼠标活动
+    check_point(now_setting, play_button)
+
+    # 更新等待界面
+    update_wait(now_setting, fight_screen, play_button)
+
+
+# 更新等待界面
+def update_wait(now_setting, fight_screen, play_button):
+    # 填充等待界面背景颜色
+    fight_screen.fill(now_setting.bg_color)
+    # 显示光标
+    pygame.mouse.set_visible(True)
+    # 绘制play按钮
+    play_button.draw_button()
+    # 更新屏幕，让最近绘制的屏幕可见
+    pygame.display.flip()
+
+
+# 检查鼠标活动
+def check_point(now_setting, play_button):
+    # 检查退出游戏
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            sys.exit()
+        # 检查点击按钮
+        elif event.type == pygame.MOUSEBUTTONDOWN:
+            # 获取鼠标 x, y 坐标，pygame.mouse. get_pos() 返回一个元组，其中包含玩家单击时鼠标的x和y坐标
+            mouse_x, mouse_y = pygame.mouse.get_pos()
+            # collidepoint()检查鼠标单击位置是否在Play按钮的rect内
+            if play_button.rect.collidepoint(mouse_x, mouse_y):
+                now_setting.if_game = True
+
+
 # 更新屏幕
-def update_screen(fight_screen, now_setting, zombies, fox, bullets):
+def update_screen(fight_screen, now_setting, zombies, fox, bullets, play_button):
     # 设置fight_screen的背景颜色，fill方法一次只能调用一个参数，一种颜色，表示将这个颜色填满屏幕
     fight_screen.fill(now_setting.bg_color)
 
+    # 隐藏光标
+    pygame.mouse.set_visible(False)
+
     # 绘制守卫
     fox.put_guard()
+
     # 绘制子弹
     for bullet in bullets.sprites():  # 遍历编组中所有的子弹
         bullet.bullet_draw()  # 绘制每个子弹
 
-    # 创建僵尸
-    add_zombie(zombies, fight_screen, now_setting)
     # 绘制僵尸
     zombie_coming(zombies)
 
     # 更新屏幕，让最近绘制的屏幕可见
     pygame.display.flip()
+
+
+# 增大游戏难度
+def harder(achievement, zombies):
+    for one_zombies in zombies:
+        # 僵尸移速增加
+        one_zombies.zmb_speed = (
+            achievement.killed_zombies / 100 + one_zombies.zmb_speed_basic
+        )
+        # 增加僵尸血量
+        one_zombies.zmb_blood = (
+            achievement.killed_zombies * 10 + one_zombies.zmb_blood_basic
+        )
 
 
 # 接收鼠标和键盘的各种操作的函数
@@ -105,11 +156,14 @@ def zombie_coming(zombies):
 
 
 # 生成僵尸
-def add_zombie(zombies, screen, time_setting):  # 设置模块中包含最大僵尸数、上一个僵尸的创建时间、僵尸生成间隔
+def add_zombie(
+    zombies, screen, time_setting, achievement
+):  # 设置模块中包含最大僵尸数、上一个僵尸的创建时间、僵尸生成间隔
     if len(zombies) <= time_setting.zombie_max:
         if len(zombies) < 1:  # 僵尸全部死亡时，立即创建一个僵尸，并且创建游戏开始的第一个僵尸
             new_zombei = Zombie(screen)
             zombies.add(new_zombei)
+            harder(achievement, zombies)  # 强化僵尸
             time_setting.last_zmb_brithday = time.time()  # 储存上一个僵尸的生成时间
         elif (
             len(zombies) >= 1  # 达到时间间隔之后生成僵尸
@@ -117,4 +171,56 @@ def add_zombie(zombies, screen, time_setting):  # 设置模块中包含最大僵
         ):
             new_zombei = Zombie(screen)
             zombies.add(new_zombei)
+            harder(achievement, zombies)  # 强化僵尸
             time_setting.last_zmb_brithday = time.time()  # 储存僵尸生成的时间
+
+
+# 删除看不见了的子弹
+def bullet_delete(bullets, now_setting):
+    for bullet in bullets.copy():  # 书上使用的是 in bullets.copy() 我没有使用但是好像也可以正常删除没有问题
+        if bullet.rect.x > now_setting.fight_screen_width:
+            bullets.remove(bullet)
+
+
+# 扣除僵尸血量并杀死他们
+def hit_zombies(bullets, zombies, now_setting, achievement):
+    # 检测子弹和僵尸的碰撞，并删除子弹或者僵尸
+    # pygame.sprite.groupcollide（）–两个精灵组中所有精灵的碰撞检测
+    # hit = pygame.sprite.groupcollide(bullets, zombies, True, False)
+    # sprite提供的groupcollide函数能够检测两个编组中的每个surface是否碰撞，并且返回一个以子弹为键、以僵尸为值的字典
+    # 在这个字典中，每个值都是被子弹击中的僵尸
+    # 函数最后俩个参数分别代表是否将击中僵尸的bullet和被子弹击中的zombie在他们所在的编组中删除
+    for zombie_sprite in zombies.copy():
+        # pygame.sprite.spritecollide() —判断某个精灵和指定精灵组中的精灵的碰撞,Ture表示，如果发生碰撞，则移除指定精灵组中的精灵
+        hit = pygame.sprite.spritecollide(zombie_sprite, bullets, True)
+        if hit:
+            zombie_sprite.zmb_blood -= now_setting.bullet_ATK
+            if zombie_sprite.zmb_blood <= 0:
+                zombies.remove(zombie_sprite)
+                achievement.killed_zombies += 1
+                print("消灭僵尸数：" + str(achievement.killed_zombies))
+
+
+# 更新守卫血量
+def update_guard_blood(now_setting, zombies, fox):
+    fox_hit = pygame.sprite.spritecollide(fox, zombies, False)
+    if (
+        fox_hit
+        and time.time() - now_setting.guard_injury_time
+        > now_setting.injury_immunity  # 设置无敌时间
+    ):
+        fox.guard_blood -= now_setting.zombie_ATK
+        # 记录受伤时间
+        now_setting.guard_injury_time = time.time()
+        print(fox.guard_blood)
+        if fox.guard_blood <= 0:
+            now_setting.if_game = False
+            print("over")
+
+
+# 检查僵尸是否入侵
+def kill_you(now_setting, zombies):
+    for a_zombie in zombies:
+        if a_zombie.rect.right < 0:
+            now_setting.if_game = False
+            print("over")

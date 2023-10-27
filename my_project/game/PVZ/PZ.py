@@ -14,8 +14,12 @@ class Zombie(Sprite):
         # 初始化僵尸，并且设置其初始位置
         self.screen = screen  # 指定僵尸应该绘制到的地方
 
+        # 基准移速
+        self.zmb_speed_basic = 0.005  # 0.005 的速度还是可以的
         # 僵尸的移速
-        self.zmb_speed = 0.005  # 0.005 的速度还是可以的
+        self.zmb_speed = 0.005
+        # 基准血量
+        self.zmb_blood_basic = 100
         # 僵尸血量
         self.zmb_blood = 100
         # 死亡证明
