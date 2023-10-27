@@ -2,7 +2,7 @@
 import pygame
 
 # 设置的类
-from setting import Settings, Button, Achievement
+from setting import Settings, Button, Achievement, See_Achievement
 
 # 僵尸和植物的属性的类
 from PZ import Zombie, Guard
@@ -28,6 +28,8 @@ import time
 
 
 def game():
+    # 创建记分器
+    achievement = Achievement()
     while True:
         # 加载、倒入设置,创建类Settings类型的变量
         now_setting = Settings()
@@ -40,10 +42,13 @@ def game():
         # 对象fight_screen是一个surface。在Pygame中，surface是屏幕的一部分，用于显示游戏元素。在这个游戏中，每个元素（如外星人或飞船）都是一个surface。
         # display.set_mode()返回的surface表示整个游戏窗口。我们激活游戏的动画循环后，每经过一次循环都将自动重绘这个surface。
 
+        # 重置计分
+        achievement.reset_score()
+        # 创建计分展示
+        see_achievement = See_Achievement(fight_screen, now_setting, achievement)
+
         # 创建play按钮：
         play_button = Button(now_setting, fight_screen, "Play")
-        # 创建记分器
-        achievement = Achievement()
         #
         # 创建一个守卫类型的狐狸
         fox = Guard(fight_screen)
@@ -62,8 +67,8 @@ def game():
                     zombies,
                     fox,
                     bullets,
-                    play_button,
                     achievement,
+                    see_achievement,
                 )
                 break
             # 等待游戏开始
@@ -73,7 +78,13 @@ def game():
 
 # 开始游戏
 def start_game(
-    fight_screen, now_setting, zombies, fox, bullets, play_button, achievement
+    fight_screen,
+    now_setting,
+    zombies,
+    fox,
+    bullets,
+    achievement,
+    see_achievement,
 ):
     while True:
         # 如果游戏开始
@@ -82,21 +93,31 @@ def start_game(
         # 生成僵尸
         add_zombie(zombies, fight_screen, now_setting, achievement)
         # 检查更新子弹
-        update_bullet(bullets, zombies, now_setting, achievement)
+        update_bullet(
+            fight_screen, bullets, zombies, now_setting, achievement, see_achievement
+        )
         # 结束游戏
         over_game(now_setting, zombies, fox, bullets)
         # 更新屏幕
-        update_screen(fight_screen, now_setting, zombies, fox, bullets, play_button)
+        update_screen(
+            fight_screen,
+            now_setting,
+            zombies,
+            fox,
+            bullets,
+            achievement,
+            see_achievement,
+        )
         # 如果游戏未开始或者结束
         if now_setting.if_game == False:
             break
 
 
-def update_bullet(bullets, zombies, now_setting, achievement):
+def update_bullet(screen, bullets, zombies, now_setting, achievement, see_achievement):
     # 删除已经消失了的子弹
     bullet_delete(bullets, now_setting)
     # 扣除僵尸血量并杀死他们
-    hit_zombies(bullets, zombies, now_setting, achievement)
+    hit_zombies(screen, bullets, zombies, now_setting, achievement, see_achievement)
 
 
 # 结束游戏

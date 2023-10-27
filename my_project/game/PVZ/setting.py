@@ -3,6 +3,7 @@
 
 from pygame.sprite import Sprite
 import pygame
+import pygame.font
 
 
 class Settings:
@@ -18,6 +19,8 @@ class Settings:
         self.file_adr = "my_project/game/PVZ/"
         # 最大僵尸数
         self.zombie_max = 5
+        # 僵尸的价值（分数）
+        self.zombie_value = 50
         # 僵尸的生成间隔(单位:秒)
         self.add_sleep = 8
         # 第一只僵尸的出生日期
@@ -32,8 +35,8 @@ class Settings:
         self.guard_injury_time = 0
         # 游戏结束的标志
         self.if_game = False
-        # 记录第一只僵尸的出生日期
 
+    # 记录上一只僵尸的出生日期
     def set_zmb_brithday(self, time):
         self.last_zmb_time = time
 
@@ -55,8 +58,6 @@ class Bullet(Sprite):
         self.bullet_color = 60, 60, 60
         # 限制子弹数量
         self.bullet_num_max = 1  # 最大子弹数量为此值加一
-        # 子弹伤害
-        self.buttet_ATK = 50
 
         # 在(0,0)处创建一个表示子弹的矩形，Rect 函数表示子弹的属性,(0,0)是子弹左上角的坐标
         self.rect = pygame.Rect(0, 0, self.bullet_width, self.bullet_height)
@@ -127,7 +128,7 @@ class Button:
 class Achievement:
     def __init__(self) -> None:
         # 得分
-        self.score = 0
+        self.score = 90
         # 最高分
         self.score_max = 0
         # 杀敌数
@@ -140,5 +141,80 @@ class Achievement:
     # 重置分数、杀敌数和等级
     def reset_score(self):
         self.score = 0
-        self.killed_zombie = 0
+        self.killed_zombies = 0
         self.level = 1
+
+
+# 分数显示
+class See_Achievement:
+    def __init__(self, screen, setting, achievement) -> None:
+        self.screen = screen
+        self.setting = setting
+        self.achievement = achievement
+
+        # 分数导入
+        self.score = self.achievement.score
+        self.killed_zombies = self.achievement.killed_zombies
+        self.level = self.achievement.level
+        # 文本设置
+        self.text_color = (30, 30, 30)
+        self.font_size = 30
+        self.font = pygame.font.SysFont(None, self.font_size)
+
+        # 渲染图像
+        self.score_img = self.font.render(
+            "score:" + str(self.score), True, self.text_color, self.setting.bg_color
+        )
+        self.killed_zombies_img = self.font.render(
+            "kill:" + str(self.killed_zombies),
+            True,
+            self.text_color,
+            (self.setting.bg_color),
+        )
+        self.level_img = self.font.render(
+            "level:" + str(self.level), True, self.text_color, self.setting.bg_color
+        )
+        # 获取屏幕和文本位置
+        self.screen_rect = self.screen.get_rect()
+        self.score_img_rect = self.score_img.get_rect()
+        self.killed_zombies_img_rect = self.killed_zombies_img.get_rect()
+        self.level_img_rect = self.level_img.get_rect()
+        # 摆放文本
+        self.score_img_rect.top = self.screen_rect.top
+        self.score_img_rect.centerx = self.screen_rect.centerx
+
+        self.killed_zombies_img_rect.top = self.screen_rect.top + self.font_size
+        self.killed_zombies_img_rect.centerx = self.screen_rect.centerx
+
+        self.level_img_rect.top = self.screen_rect.top + (self.font_size * 2)
+        self.level_img_rect.centerx = self.screen_rect.centerx
+
+    # 展示得分
+    def show_score(self):
+        self.screen.blit(self.score_img, self.score_img_rect)
+        self.screen.blit(self.killed_zombies_img, self.killed_zombies_img_rect)
+        self.screen.blit(self.level_img, self.level_img_rect)
+
+    # 重新渲染图像
+    def make_img(self):
+        # 渲染图像
+        self.score_img = self.font.render(
+            "score:" + str(self.score), True, self.text_color, self.setting.bg_color
+        )
+        self.killed_zombies_img = self.font.render(
+            "kill:" + str(self.killed_zombies),
+            True,
+            self.text_color,
+            (self.setting.bg_color),
+        )
+        self.level_img = self.font.render(
+            "level:" + str(self.level), True, self.text_color, self.setting.bg_color
+        )
+
+    # 更新得分数据
+    def update_score(self, score, killed_zombies, level):
+        self.score = score
+        self.killed_zombies = killed_zombies
+        self.level = level
+        self.make_img()
+        print("updated")

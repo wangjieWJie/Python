@@ -5,7 +5,7 @@ import pygame
 import sys
 
 # 子弹的类, 以及设置
-from setting import Bullet, Achievement
+from setting import Bullet
 
 # 僵尸的类
 from PZ import Zombie
@@ -51,7 +51,9 @@ def check_point(now_setting, play_button):
 
 
 # 更新屏幕
-def update_screen(fight_screen, now_setting, zombies, fox, bullets, play_button):
+def update_screen(
+    fight_screen, now_setting, zombies, fox, bullets, achievement, see_achievement
+):
     # 设置fight_screen的背景颜色，fill方法一次只能调用一个参数，一种颜色，表示将这个颜色填满屏幕
     fight_screen.fill(now_setting.bg_color)
 
@@ -67,6 +69,9 @@ def update_screen(fight_screen, now_setting, zombies, fox, bullets, play_button)
 
     # 绘制僵尸
     zombie_coming(zombies)
+
+    # 显示计分
+    see_achievement.show_score()
 
     # 更新屏幕，让最近绘制的屏幕可见
     pygame.display.flip()
@@ -183,7 +188,7 @@ def bullet_delete(bullets, now_setting):
 
 
 # 扣除僵尸血量并杀死他们
-def hit_zombies(bullets, zombies, now_setting, achievement):
+def hit_zombies(screen, bullets, zombies, now_setting, achievement, see_achievement):
     # 检测子弹和僵尸的碰撞，并删除子弹或者僵尸
     # pygame.sprite.groupcollide（）–两个精灵组中所有精灵的碰撞检测
     # hit = pygame.sprite.groupcollide(bullets, zombies, True, False)
@@ -197,8 +202,20 @@ def hit_zombies(bullets, zombies, now_setting, achievement):
             zombie_sprite.zmb_blood -= now_setting.bullet_ATK
             if zombie_sprite.zmb_blood <= 0:
                 zombies.remove(zombie_sprite)
-                achievement.killed_zombies += 1
-                print("消灭僵尸数：" + str(achievement.killed_zombies))
+                update_achievement(achievement, see_achievement, now_setting)
+
+
+# 更新成就、计分系统
+def update_achievement(achievement, see_achievement, setting):
+    # 升级
+    achievement.killed_zombies += 1
+    achievement.score += setting.zombie_value
+    achievement.level = int(achievement.killed_zombies / 5) + 1
+
+    # 更新计分面板
+    see_achievement.update_score(
+        achievement.score, achievement.killed_zombies, achievement.level
+    )
 
 
 # 更新守卫血量
