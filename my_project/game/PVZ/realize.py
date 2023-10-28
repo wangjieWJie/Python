@@ -13,22 +13,27 @@ from PZ import Zombie
 # 时间模板
 import time
 
+# 文本转推片
+import pygame.font
+
 
 # 等待游戏开始
-def wait_play(now_setting, fight_screen, play_button):
+def wait_play(now_setting, fight_screen, play_button, achievement):
     # 检查鼠标活动
-    check_point(now_setting, play_button)
+    check_point(now_setting, play_button, achievement)
 
     # 更新等待界面
-    update_wait(now_setting, fight_screen, play_button)
+    update_wait(now_setting, fight_screen, play_button, achievement)
 
 
 # 更新等待界面
-def update_wait(now_setting, fight_screen, play_button):
+def update_wait(now_setting, fight_screen, play_button, achievement):
     # 填充等待界面背景颜色
     fight_screen.fill(now_setting.bg_color)
     # 显示光标
     pygame.mouse.set_visible(True)
+    # 绘制成绩单
+    see_score_waitting(fight_screen, achievement)
     # 绘制play按钮
     play_button.draw_button()
     # 更新屏幕，让最近绘制的屏幕可见
@@ -36,11 +41,11 @@ def update_wait(now_setting, fight_screen, play_button):
 
 
 # 检查鼠标活动
-def check_point(now_setting, play_button):
+def check_point(now_setting, play_button, achievement):
     # 检查退出游戏
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            sys.exit()
+            save_quit(achievement)
         # 检查点击按钮
         elif event.type == pygame.MOUSEBUTTONDOWN:
             # 获取鼠标 x, y 坐标，pygame.mouse. get_pos() 返回一个元组，其中包含玩家单击时鼠标的x和y坐标
@@ -91,11 +96,11 @@ def harder(achievement, zombies):
 
 
 # 接收鼠标和键盘的各种操作的函数
-def check_event(guard, bullets, zombies, screen, setting):
+def check_event(guard, bullets, zombies, screen, setting, achievement):
     # 相应按键和鼠标事件
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            sys.exit()
+            save_quit(achievement)
 
         # 移动守卫的条件
         guard_moving(event, guard)
@@ -246,5 +251,56 @@ def kill_you(now_setting, zombies):
 
 
 # 等待进入游戏时的分数显示
-def see_score_waitting():
-    
+def see_score_waitting(screen, achievement):
+    score_str = "Top score: " + str(achievement.score_max)
+    killed_str = "Total killed: " + str(achievement.all_killed)
+    font = pygame.font.SysFont(None, 40)
+    # 渲染图象
+    score_image = font.render(
+        score_str,
+        True,
+        (50, 145, 113),
+        (225, 225, 225),
+    )
+    killed_image = font.render(
+        killed_str,
+        True,
+        (50, 145, 113),
+        (225, 225, 225),
+    )
+
+    # 获取屏幕和文本位置
+    screen_rect = screen.get_rect()
+    score_rect = score_image.get_rect()
+    killed_rect = killed_image.get_rect()
+    # 摆放文本位置
+    score_rect.centerx = screen_rect.centerx
+    score_rect.top = screen_rect.top + 20
+
+    killed_rect.centerx = screen_rect.centerx
+    killed_rect.top = screen_rect.top + 40 + 20
+
+    # 打印成绩单
+    screen.blit(score_image, score_rect)
+    screen.blit(killed_image, killed_rect)
+
+
+# 保存然后退出
+def save_quit(achievement):
+    # save
+    acvmt_str = str(achievement.score_max) + "\n" + str(achievement.all_killed)
+    with open("my_project/game/PVZ/file/achievement", "w") as achievement_file:
+        achievement_file.write(acvmt_str)
+    # quit
+    sys.exit()
+
+
+# 读取存档
+def get_score(achievement):
+    with open("my_project/game/PVZ/file/achievement", "r") as achievement_file:
+        all_score = []
+        if achievement_file:
+            for every_score in achievement_file:
+                all_score.append(int(every_score.rstrip()))
+            achievement.score_max = all_score[0]
+            achievement.all_killed = all_score[1]

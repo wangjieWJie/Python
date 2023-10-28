@@ -30,9 +30,9 @@ class Settings:
         # 最多子弹数量
         self.bullet_num_max = 1
         # 僵尸伤害
-        self.zombie_ATK = 49
+        self.zombie_ATK = 50
         # 守卫无敌时间,伤害免疫
-        self.injury_immunity = 3
+        self.injury_immunity = 2
         # 守卫上次受伤时间
         self.guard_injury_time = 0
         # 游戏结束的标志
@@ -142,15 +142,18 @@ class Achievement:
 
     # 重置分数、杀敌数和等级,记录最高分、总杀敌数
     def reset_score(self):
+        # 更新
+        self.all_killed += self.killed_zombies
+        if self.score > self.score_max:
+            self.score_max = self.score
+        # 归零
         self.score = 0
         self.killed_zombies = 0
         self.level = 1
-        self.killed_zombies += self.all_killed
-        if self.score > self.score_max:
-            self.score_max = self.score
 
 
 # 分数显示
+# 借助类能够长久保存数据的特性，极大的提高了程序的运行效率，重复执行的只有一个show_score
 class See_Achievement:
     def __init__(self, screen, setting, achievement) -> None:
         self.screen = screen
@@ -222,4 +225,3 @@ class See_Achievement:
         self.killed_zombies = killed_zombies
         self.level = level
         self.make_img()
-        print("updated")

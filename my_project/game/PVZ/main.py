@@ -18,6 +18,7 @@ from realize import (
     update_guard_blood,
     kill_you,
     harder,
+    get_score,
 )
 
 # 用于创建各种编组
@@ -30,6 +31,7 @@ import time
 def game():
     # 创建记分器
     achievement = Achievement()
+    get_score(achievement)
     while True:
         # 加载、倒入设置,创建类Settings类型的变量
         now_setting = Settings()
@@ -73,7 +75,7 @@ def game():
                 break
             # 等待游戏开始
             if now_setting.if_game == False:
-                wait_play(now_setting, fight_screen, play_button)
+                wait_play(now_setting, fight_screen, play_button, achievement)
 
 
 # 开始游戏
@@ -89,7 +91,7 @@ def start_game(
     while True:
         # 如果游戏开始
         # 捕获鼠标或者按键操作
-        check_event(fox, bullets, zombies, fight_screen, now_setting)
+        check_event(fox, bullets, zombies, fight_screen, now_setting, achievement)
         # 生成僵尸
         add_zombie(zombies, fight_screen, now_setting, achievement)
         # 检查更新子弹
