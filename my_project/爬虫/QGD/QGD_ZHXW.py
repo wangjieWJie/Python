@@ -108,6 +108,8 @@ while st.url_list_num < st.get_list:
     html_content = response.text
     # 使用BeautifulSoup解析网页
     list_web = BeautifulSoup(html_content, "html.parser")
+    # dayin
+    print(list_web)
 
     # 爬取新闻列链接
     news_all = list_web.find_all("span", attrs={"class": "news_title"})
