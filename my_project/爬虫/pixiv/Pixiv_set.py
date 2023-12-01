@@ -3,7 +3,7 @@ class Pixiv:
         # P站网址
         self.url_pixiv = "https://www.pixiv.net"
         # 阅读排行榜地址
-        self.url_monthly = "https://www.pixiv.net/ranking.php?mode=monthly"
+        self.url_monthly = "https://www.pixiv.net/ranking.php?"
         self.params = {"mode": "monthly"}
         # 排行榜图片总数
         self.total_img = 100
