@@ -43,6 +43,9 @@ print(week)
 week.remove("weekend")
 print(week)
 # 这个方法一次只能删除一个值，当有多个相同的值的时候需要使用循环来彻底删除某个值
+if 'start' in week:
+    print('yes')
+# 用于判断某个元素是否在列表list中，判断不在用 not in
 
 
 # 2、组织列表
