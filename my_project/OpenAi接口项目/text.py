@@ -30,3 +30,5 @@ response = requests.post(url, headers=headers, data=json.dumps(data).encode('utf
 result = response.content.decode("utf-8")
 
 print(result)
+print("\n")
+anser = response.chioses
