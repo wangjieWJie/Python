@@ -70,18 +70,6 @@ class Setting:
                      "y" : self.loca_win["top"] + self.loca_win["height"] -25 } 
 
 
-        print(self.loca_head)
-         
-             
-
-
-
-
-
-
-
-
-
 
 
 
@@ -90,19 +78,19 @@ def click_food(St):
     
     #移动并点击food
     pyautogui.moveTo(St.food["x"], St.food["y"])
-    pyautogui.click(clicks=1,button= "left",duration=0)
+    pyautogui.click(clicks=2,button= "left",duration=0.2)
 
-    pyautogui.PAUSE = 1.5
+    pyautogui.PAUSE = 1
     print("卖菜中")
 
 
 
 #升级食物
 def grade_up(St):
-    if time.time()-St.time_grade > 12:
+    if time.time()-St.time_grade > 24:
         #隔段时间就升级
         pyautogui.moveTo(St.grade_up["x"], St.grade_up["y"])
-        pyautogui.click(clicks=1,button= "left",duration=0)
+        pyautogui.click(clicks=2,button= "left",duration=0.2)
         #更新时间戳
         St.time_grade = time.time()
         print("升级中...\n")

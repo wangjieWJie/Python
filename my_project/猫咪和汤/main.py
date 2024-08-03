@@ -5,7 +5,6 @@ while True:
     St = Setting()
 
     while True:
-        print(St.time_grade)
         #刷新窗口位置
         St.update_win()
 

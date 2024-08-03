@@ -1,0 +1,828 @@
+<Control Name="微信 " Type="窗口">
+  <Control Name=" " Type="窗格" />
+  <Control Name=" " Type="窗格">
+    <Control Name=" " Type="窗格">
+      <Control Name="导航 " Type="工具栏">
+        <Control Name="Coca Cola " Type="按钮" />
+        <Control Name="聊天 " Type="按钮" />
+        <Control Name="通讯录 " Type="按钮" />
+        <Control Name="收藏 " Type="按钮" />
+        <Control Name="聊天文件 " Type="按钮" />
+        <Control Name="朋友圈 " Type="按钮" />
+        <Control Name=" " Type="窗格">
+          <Control Name=" " Type="窗格">
+            <Control Name="搜一搜 " Type="按钮" />
+          </Control>
+        </Control>
+        <Control Name=" " Type="窗格">
+          <Control Name=" " Type="窗格">
+            <Control Name="小程序面板 " Type="按钮" />
+          </Control>
+        </Control>
+        <Control Name=" " Type="窗格">
+          <Control Name="手机 " Type="按钮" />
+        </Control>
+        <Control Name=" " Type="窗格">
+          <Control Name="设置及其他 " Type="按钮" />
+        </Control>
+      </Control>
+      <Control Name=" " Type="窗格">
+        <Control Name=" " Type="窗格">
+          <Control Name=" " Type="窗格">
+            <Control Name=" " Type="文本" />
+            <Control Name=" " Type="窗格">
+              <Control Name="搜索 " Type="编辑" />
+              <Control Name=" " Type="文本" />
+            </Control>
+          </Control>
+          <Control Name=" " Type="窗格">
+            <Control Name="发起群聊 " Type="按钮" />
+          </Control>
+        </Control>
+        <Control Name=" " Type="窗格">
+          <Control Name=" " Type="窗格">
+            <Control Name=" " Type="窗格">
+              <Control Name=" " Type="窗格">
+                <Control Name="会话 " Type="列表">
+                  <Control Name="sherio已置顶3条新消息 " Type="列表项目">
+                    <Control Name=" " Type="窗格">
+                      <Control Name="sherio " Type="按钮" />
+                      <Control Name=" " Type="窗格">
+                        <Control Name=" " Type="窗格">
+                          <Control Name="sherio " Type="文本" />
+                          <Control Name=" " Type="窗格" />
+                          <Control Name="10:03 " Type="文本" />
+                        </Control>
+                        <Control Name=" " Type="窗格">
+                          <Control Name="电脑打开就 " Type="文本" />
+                        </Control>
+                      </Control>
+                      <Control Name="3 " Type="文本" />
+                    </Control>
+                  </Control>
+                  <Control Name="嘴角上扬的微笑😍😍😍已置顶3条新消息 " Type="列表项目">
+                    <Control Name=" " Type="窗格">
+                      <Control Name="嘴角上扬的微笑😍😍😍 " Type="按钮" />
+                      <Control Name=" " Type="窗格">
+                        <Control Name=" " Type="窗格">
+                          <Control Name="嘴角上扬的微笑😍😍😍 " Type="文本" />
+                          <Control Name=" " Type="窗格" />
+                          <Control Name="10:03 " Type="文本" />
+                        </Control>
+                        <Control Name=" " Type="窗格">
+                          <Control Name="人家还没来过我家 " Type="文本" />
+                        </Control>
+                      </Control>
+                      <Control Name="3 " Type="文本" />
+                    </Control>
+                  </Control>
+                  <Control Name="山药丸子已置顶 " Type="列表项目">
+                    <Control Name=" " Type="窗格">
+                      <Control Name="山药丸子 " Type="按钮" />
+                      <Control Name=" " Type="窗格">
+                        <Control Name=" " Type="窗格">
+                          <Control Name="山药丸子 " Type="文本" />
+                          <Control Name=" " Type="窗格" />
+                          <Control Name="24/4/7 " Type="文本" />
+                        </Control>
+                        <Control Name=" " Type="窗格">
+                          <Control Name="[语音] " Type="文本" />
+                          <Control Name=" " Type="窗格" />
+                        </Control>
+                      </Control>
+                    </Control>
+                  </Control>
+                  <Control Name="山东中医药大学财务处已置顶 " Type="列表项目">
+                    <Control Name=" " Type="窗格">
+                      <Control Name="山东中医药大学财务处 " Type="按钮" />
+                      <Control Name=" " Type="窗格">
+                        <Control Name=" " Type="窗格">
+                          <Control Name="山东中医药大学财务处 " Type="文本" />
+                          <Control Name=" " Type="窗格" />
+                          <Control Name="24/7/12 " Type="文本" />
+                        </Control>
+                        <Control Name=" " Type="窗格">
+                          <Control Name="财务处党支部传达学习学校第六次党代会精神 " Type="文本" />
+                          <Control Name=" " Type="窗格" />
+                        </Control>
+                      </Control>
+                    </Control>
+                  </Control>
+                  <Control Name="妈妈1条新消息 " Type="列表项目">
+                    <Control Name=" " Type="窗格">
+                      <Control Name="妈妈 " Type="按钮" />
+                      <Control Name=" " Type="窗格">
+                        <Control Name=" " Type="窗格">
+                          <Control Name="妈妈 " Type="文本" />
+                          <Control Name=" " Type="窗格" />
+                          <Control Name="10:03 " Type="文本" />
+                        </Control>
+                        <Control Name=" " Type="窗格">
+                          <Control Name="开着空调了 " Type="文本" />
+                        </Control>
+                      </Control>
+                      <Control Name="1 " Type="文本" />
+                    </Control>
+                  </Control>
+                  <Control Name="赵坤 " Type="列表项目">
+                    <Control Name=" " Type="窗格">
+                      <Control Name="赵坤 " Type="按钮" />
+                      <Control Name=" " Type="窗格">
+                        <Control Name=" " Type="窗格">
+                          <Control Name="赵坤 " Type="文本" />
+                          <Control Name=" " Type="窗格" />
+                          <Control Name="9:54 " Type="文本" />
+                        </Control>
+                        <Control Name=" " Type="窗格">
+                          <Control Name="[动画表情] " Type="文本" />
+                        </Control>
+                      </Control>
+                    </Control>
+                  </Control>
+                  <Control Name="理性守护者 " Type="列表项目">
+                    <Control Name=" " Type="窗格">
+                      <Control Name="理性守护者 " Type="按钮" />
+                      <Control Name=" " Type="窗格">
+                        <Control Name=" " Type="窗格">
+                          <Control Name="理性守护者 " Type="文本" />
+                          <Control Name=" " Type="窗格" />
+                          <Control Name="9:08 " Type="文本" />
+                        </Control>
+                        <Control Name=" " Type="窗格">
+                          <Control Name="[动画表情] " Type="文本" />
+                        </Control>
+                      </Control>
+                    </Control>
+                  </Control>
+                  <Control Name="订阅号 " Type="列表项目">
+                    <Control Name=" " Type="窗格">
+                      <Control Name="SessionListItem " Type="按钮" />
+                      <Control Name=" " Type="窗格">
+                        <Control Name=" " Type="窗格">
+                          <Control Name="订阅号 " Type="文本" />
+                          <Control Name=" " Type="窗格" />
+                          <Control Name="9:00 " Type="文本" />
+                        </Control>
+                        <Control Name=" " Type="窗格">
+                          <Control Name="新周刊: 离职之后，我在图书馆“假装上班” " Type="文本" />
+                        </Control>
+                      </Control>
+                      <Control Name=" " Type="窗格" />
+                    </Control>
+                  </Control>
+                  <Control Name="微信运动 " Type="列表项目">
+                    <Control Name=" " Type="窗格">
+                      <Control Name="微信运动 " Type="按钮" />
+                      <Control Name=" " Type="窗格">
+                        <Control Name=" " Type="窗格">
+                          <Control Name="微信运动 " Type="文本" />
+                          <Control Name=" " Type="窗格" />
+                          <Control Name="昨天 " Type="文本" />
+                        </Control>
+                        <Control Name=" " Type="窗格">
+                          <Control Name="[不支持类型消息] " Type="文本" />
+                        </Control>
+                      </Control>
+                    </Control>
+                  </Control>
+                  <Control Name="文件传输助手 " Type="列表项目">
+                    <Control Name=" " Type="窗格">
+                      <Control Name="文件传输助手 " Type="按钮" />
+                      <Control Name=" " Type="窗格">
+                        <Control Name=" " Type="窗格">
+                          <Control Name="文件传输助手 " Type="文本" />
+                          <Control Name=" " Type="窗格" />
+                          <Control Name="24/6/7 " Type="文本" />
+                        </Control>
+                        <Control Name=" " Type="窗格">
+                          <Control Name="﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿​ " Type="文本" />
+                        </Control>
+                      </Control>
+                    </Control>
+                  </Control>
+                  <Control Name="王凤豪村精英群 " Type="列表项目">
+                    <Control Name=" " Type="窗格">
+                      <Control Name="王凤豪村精英群 " Type="按钮" />
+                      <Control Name=" " Type="窗格">
+                        <Control Name=" " Type="窗格">
+                          <Control Name="王凤豪村精英群 " Type="文本" />
+                          <Control Name=" " Type="窗格" />
+                          <Control Name="昨天 " Type="文本" />
+                        </Control>
+                        <Control Name=" " Type="窗格">
+                          <Control Name="[24条] 王召芹：亲们今天早上有捡到手机充电器的吗？[呲牙] " Type="文本" />
+                          <Control Name=" " Type="窗格" />
+                        </Control>
+                      </Control>
+                      <Control Name=" " Type="窗格" />
+                    </Control>
+                  </Control>
+                  <Control Name="腾讯成长守护 " Type="列表项目">
+                    <Control Name=" " Type="窗格">
+                      <Control Name="腾讯成长守护 " Type="按钮" />
+                      <Control Name=" " Type="窗格">
+                        <Control Name=" " Type="窗格">
+                          <Control Name="腾讯成长守护 " Type="文本" />
+                          <Control Name=" " Type="窗格" />
+                          <Control Name="昨天 " Type="文本" />
+                        </Control>
+                        <Control Name=" " Type="窗格">
+                          <Control Name="游戏登录提醒 " Type="文本" />
+                          <Control Name=" " Type="窗格" />
+                        </Control>
+                      </Control>
+                    </Control>
+                  </Control>
+                </Control>
+              </Control>
+            </Control>
+          </Control>
+        </Control>
+      </Control>
+      <Control Name=" " Type="窗格">
+        <Control Name=" " Type="窗格">
+          <Control Name=" " Type="窗格">
+            <Control Name=" " Type="窗格">
+              <Control Name=" " Type="窗格">
+                <Control Name=" " Type="窗格">
+                  <Control Name=" " Type="窗格">
+                    <Control Name=" " Type="窗格" />
+                    <Control Name=" " Type="窗格">
+                      <Control Name=" " Type="窗格">
+                        <Control Name=" " Type="窗格">
+                          <Control Name=" " Type="窗格">
+                            <Control Name="理性守护者 " Type="文本" />
+                          </Control>
+                          <Control Name=" " Type="按钮" />
+                        </Control>
+                        <Control Name=" " Type="窗格" />
+                      </Control>
+                    </Control>
+                    <Control Name=" " Type="窗格">
+                      <Control Name=" " Type="窗格" />
+                      <Control Name=" " Type="窗格">
+                        <Control Name="聊天信息 " Type="按钮" />
+                      </Control>
+                    </Control>
+                  </Control>
+                </Control>
+                <Control Name=" " Type="窗格">
+                  <Control Name=" " Type="窗格">
+                    <Control Name=" " Type="窗格">
+                      <Control Name="消息 " Type="列表">
+                        <Control Name="查看更多消息 " Type="按钮">
+                          <Control Name=" " Type="窗格">
+                            <Control Name=" " Type="窗格" />
+                            <Control Name="查看更多消息 " Type="按钮" />
+                            <Control Name=" " Type="窗格" />
+                          </Control>
+                        </Control>
+                        <Control Name="2024年7月26日 12:58 " Type="列表项目">
+                          <Control Name="2024年7月26日 12:58 " Type="文本" />
+                        </Control>
+                        <Control Name="[图片] " Type="列表项目">
+                          <Control Name=" " Type="窗格">
+                            <Control Name=" " Type="窗格" />
+                            <Control Name=" " Type="窗格">
+                              <Control Name=" " Type="窗格">
+                                <Control Name=" " Type="窗格">
+                                  <Control Name=" " Type="窗格">
+                                    <Control Name=" " Type="窗格" />
+                                    <Control Name=" " Type="窗格">
+                                      <Control Name=" " Type="窗格" />
+                                      <Control Name=" " Type="按钮" />
+                                    </Control>
+                                  </Control>
+                                </Control>
+                              </Control>
+                            </Control>
+                            <Control Name="Coca Cola " Type="按钮" />
+                          </Control>
+                        </Control>
+                        <Control Name="极限了 " Type="列表项目">
+                          <Control Name=" " Type="窗格">
+                            <Control Name=" " Type="窗格" />
+                            <Control Name=" " Type="窗格">
+                              <Control Name=" " Type="窗格">
+                                <Control Name=" " Type="窗格">
+                                  <Control Name=" " Type="窗格">
+                                    <Control Name="极限了 " Type="文本" />
+                                  </Control>
+                                </Control>
+                              </Control>
+                            </Control>
+                            <Control Name="Coca Cola " Type="按钮" />
+                          </Control>
+                        </Control>
+                        <Control Name="2024年7月26日 14:30 " Type="列表项目">
+                          <Control Name="2024年7月26日 14:30 " Type="文本" />
+                        </Control>
+                        <Control Name="[图片] " Type="列表项目">
+                          <Control Name=" " Type="窗格">
+                            <Control Name=" " Type="窗格" />
+                            <Control Name=" " Type="窗格">
+                              <Control Name=" " Type="窗格">
+                                <Control Name=" " Type="窗格">
+                                  <Control Name=" " Type="窗格">
+                                    <Control Name=" " Type="窗格" />
+                                    <Control Name=" " Type="窗格">
+                                      <Control Name=" " Type="窗格" />
+                                      <Control Name=" " Type="按钮" />
+                                    </Control>
+                                  </Control>
+                                </Control>
+                              </Control>
+                            </Control>
+                            <Control Name="Coca Cola " Type="按钮" />
+                          </Control>
+                        </Control>
+                        <Control Name="笑了 " Type="列表项目">
+                          <Control Name=" " Type="窗格">
+                            <Control Name=" " Type="窗格" />
+                            <Control Name=" " Type="窗格">
+                              <Control Name=" " Type="窗格">
+                                <Control Name=" " Type="窗格">
+                                  <Control Name=" " Type="窗格">
+                                    <Control Name="笑了 " Type="文本" />
+                                  </Control>
+                                </Control>
+                              </Control>
+                            </Control>
+                            <Control Name="Coca Cola " Type="按钮" />
+                          </Control>
+                        </Control>
+                        <Control Name="2024年7月26日 16:15 " Type="列表项目">
+                          <Control Name="2024年7月26日 16:15 " Type="文本" />
+                        </Control>
+                        <Control Name="[图片] " Type="列表项目">
+                          <Control Name=" " Type="窗格">
+                            <Control Name="理性守护者 " Type="按钮" />
+                            <Control Name=" " Type="窗格">
+                              <Control Name=" " Type="窗格">
+                                <Control Name=" " Type="窗格">
+                                  <Control Name=" " Type="窗格">
+                                    <Control Name=" " Type="窗格" />
+                                    <Control Name=" " Type="按钮" />
+                                  </Control>
+                                </Control>
+                              </Control>
+                            </Control>
+                            <Control Name=" " Type="窗格" />
+                          </Control>
+                        </Control>
+                        <Control Name="[图片] " Type="列表项目">
+                          <Control Name=" " Type="窗格">
+                            <Control Name="理性守护者 " Type="按钮" />
+                            <Control Name=" " Type="窗格">
+                              <Control Name=" " Type="窗格">
+                                <Control Name=" " Type="窗格">
+                                  <Control Name=" " Type="窗格">
+                                    <Control Name=" " Type="窗格" />
+                                    <Control Name=" " Type="按钮" />
+                                  </Control>
+                                </Control>
+                              </Control>
+                            </Control>
+                            <Control Name=" " Type="窗格" />
+                          </Control>
+                        </Control>
+                        <Control Name="2024年7月27日 10:16 " Type="列表项目">
+                          <Control Name="2024年7月27日 10:16 " Type="文本" />
+                        </Control>
+                        <Control Name="https://www.bilibili.com/read/cv9565806/?from=articleDetail " Type="列表项目">
+                          <Control Name=" " Type="窗格">
+                            <Control Name="理性守护者 " Type="按钮" />
+                            <Control Name=" " Type="窗格">
+                              <Control Name=" " Type="窗格">
+                                <Control Name=" " Type="窗格">
+                                  <Control Name=" " Type="窗格">
+                                    <Control Name="https://www.bilibili.com/read/cv9565806/?from=articleDetail " Type="文本" />
+                                  </Control>
+                                </Control>
+                              </Control>
+                            </Control>
+                            <Control Name=" " Type="窗格" />
+                          </Control>
+                        </Control>
+                        <Control Name="2024年7月27日 17:14 " Type="列表项目">
+                          <Control Name="2024年7月27日 17:14 " Type="文本" />
+                        </Control>
+                        <Control Name="[图片] " Type="列表项目">
+                          <Control Name=" " Type="窗格">
+                            <Control Name="理性守护者 " Type="按钮" />
+                            <Control Name=" " Type="窗格">
+                              <Control Name=" " Type="窗格">
+                                <Control Name=" " Type="窗格">
+                                  <Control Name=" " Type="窗格">
+                                    <Control Name=" " Type="窗格" />
+                                    <Control Name=" " Type="按钮" />
+                                  </Control>
+                                </Control>
+                              </Control>
+                            </Control>
+                            <Control Name=" " Type="窗格" />
+                          </Control>
+                        </Control>
+                        <Control Name="这咋进不去 " Type="列表项目">
+                          <Control Name=" " Type="窗格">
+                            <Control Name="理性守护者 " Type="按钮" />
+                            <Control Name=" " Type="窗格">
+                              <Control Name=" " Type="窗格">
+                                <Control Name=" " Type="窗格">
+                                  <Control Name=" " Type="窗格">
+                                    <Control Name="这咋进不去 " Type="文本" />
+                                  </Control>
+                                </Control>
+                              </Control>
+                            </Control>
+                            <Control Name=" " Type="窗格" />
+                          </Control>
+                        </Control>
+                        <Control Name="不懂 " Type="列表项目">
+                          <Control Name=" " Type="窗格">
+                            <Control Name=" " Type="窗格" />
+                            <Control Name=" " Type="窗格">
+                              <Control Name=" " Type="窗格">
+                                <Control Name=" " Type="窗格">
+                                  <Control Name=" " Type="窗格">
+                                    <Control Name="不懂 " Type="文本" />
+                                  </Control>
+                                </Control>
+                              </Control>
+                            </Control>
+                            <Control Name="Coca Cola " Type="按钮" />
+                          </Control>
+                        </Control>
+                        <Control Name="进去了 " Type="列表项目">
+                          <Control Name=" " Type="窗格">
+                            <Control Name="理性守护者 " Type="按钮" />
+                            <Control Name=" " Type="窗格">
+                              <Control Name=" " Type="窗格">
+                                <Control Name=" " Type="窗格">
+                                  <Control Name=" " Type="窗格">
+                                    <Control Name="进去了 " Type="文本" />
+                                  </Control>
+                                </Control>
+                              </Control>
+                            </Control>
+                            <Control Name=" " Type="窗格" />
+                          </Control>
+                        </Control>
+                        <Control Name="2024年7月27日 20:06 " Type="列表项目">
+                          <Control Name="2024年7月27日 20:06 " Type="文本" />
+                        </Control>
+                        <Control Name="[图片] " Type="列表项目">
+                          <Control Name=" " Type="窗格">
+                            <Control Name="理性守护者 " Type="按钮" />
+                            <Control Name=" " Type="窗格">
+                              <Control Name=" " Type="窗格">
+                                <Control Name=" " Type="窗格">
+                                  <Control Name=" " Type="窗格">
+                                    <Control Name=" " Type="窗格" />
+                                    <Control Name=" " Type="按钮" />
+                                  </Control>
+                                </Control>
+                              </Control>
+                            </Control>
+                            <Control Name=" " Type="窗格" />
+                          </Control>
+                        </Control>
+                        <Control Name="吃饭了 " Type="列表项目">
+                          <Control Name=" " Type="窗格">
+                            <Control Name="理性守护者 " Type="按钮" />
+                            <Control Name=" " Type="窗格">
+                              <Control Name=" " Type="窗格">
+                                <Control Name=" " Type="窗格">
+                                  <Control Name=" " Type="窗格">
+                                    <Control Name="吃饭了 " Type="文本" />
+                                  </Control>
+                                </Control>
+                              </Control>
+                            </Control>
+                            <Control Name=" " Type="窗格" />
+                          </Control>
+                        </Control>
+                        <Control Name="小伙子 " Type="列表项目">
+                          <Control Name=" " Type="窗格">
+                            <Control Name="理性守护者 " Type="按钮" />
+                            <Control Name=" " Type="窗格">
+                              <Control Name=" " Type="窗格">
+                                <Control Name=" " Type="窗格">
+                                  <Control Name=" " Type="窗格">
+                                    <Control Name="小伙子 " Type="文本" />
+                                  </Control>
+                                </Control>
+                              </Control>
+                            </Control>
+                            <Control Name=" " Type="窗格" />
+                          </Control>
+                        </Control>
+                        <Control Name="昂 " Type="列表项目">
+                          <Control Name=" " Type="窗格">
+                            <Control Name=" " Type="窗格" />
+                            <Control Name=" " Type="窗格">
+                              <Control Name=" " Type="窗格">
+                                <Control Name=" " Type="窗格">
+                                  <Control Name=" " Type="窗格">
+                                    <Control Name="昂 " Type="文本" />
+                                  </Control>
+                                </Control>
+                              </Control>
+                            </Control>
+                            <Control Name="Coca Cola " Type="按钮" />
+                          </Control>
+                        </Control>
+                        <Control Name="星期四 22:07 " Type="列表项目">
+                          <Control Name="星期四 22:07 " Type="文本" />
+                        </Control>
+                        <Control Name="[动画表情] " Type="列表项目">
+                          <Control Name=" " Type="窗格">
+                            <Control Name="理性守护者 " Type="按钮" />
+                            <Control Name=" " Type="窗格">
+                              <Control Name=" " Type="窗格">
+                                <Control Name=" " Type="窗格">
+                                  <Control Name=" " Type="窗格">
+                                    <Control Name=" " Type="按钮" />
+                                  </Control>
+                                </Control>
+                              </Control>
+                            </Control>
+                            <Control Name=" " Type="窗格" />
+                          </Control>
+                        </Control>
+                        <Control Name="昨天 10:31 " Type="列表项目">
+                          <Control Name="昨天 10:31 " Type="文本" />
+                        </Control>
+                        <Control Name="语音通话 对方已取消 " Type="列表项目">
+                          <Control Name=" " Type="窗格">
+                            <Control Name="理性守护者 " Type="按钮" />
+                            <Control Name=" " Type="窗格">
+                              <Control Name=" " Type="窗格">
+                                <Control Name=" " Type="窗格">
+                                  <Control Name=" " Type="窗格">
+                                    <Control Name=" " Type="窗格">
+                                      <Control Name=" " Type="按钮" />
+                                      <Control Name=" " Type="窗格" />
+                                      <Control Name="对方已取消 " Type="文本" />
+                                    </Control>
+                                    <Control Name=" " Type="按钮" />
+                                  </Control>
+                                </Control>
+                              </Control>
+                            </Control>
+                            <Control Name=" " Type="窗格" />
+                          </Control>
+                        </Control>
+                        <Control Name="昨天 11:03 " Type="列表项目">
+                          <Control Name="昨天 11:03 " Type="文本" />
+                        </Control>
+                        <Control Name="[图片] " Type="列表项目">
+                          <Control Name=" " Type="窗格">
+                            <Control Name="理性守护者 " Type="按钮" />
+                            <Control Name=" " Type="窗格">
+                              <Control Name=" " Type="窗格">
+                                <Control Name=" " Type="窗格">
+                                  <Control Name=" " Type="窗格">
+                                    <Control Name=" " Type="窗格" />
+                                    <Control Name=" " Type="按钮" />
+                                  </Control>
+                                </Control>
+                              </Control>
+                            </Control>
+                            <Control Name=" " Type="窗格" />
+                          </Control>
+                        </Control>
+                        <Control Name="昨天 18:29 " Type="列表项目">
+                          <Control Name="昨天 18:29 " Type="文本" />
+                        </Control>
+                        <Control Name="咱爹老忙 " Type="列表项目">
+                          <Control Name=" " Type="窗格">
+                            <Control Name="理性守护者 " Type="按钮" />
+                            <Control Name=" " Type="窗格">
+                              <Control Name=" " Type="窗格">
+                                <Control Name=" " Type="窗格">
+                                  <Control Name=" " Type="窗格">
+                                    <Control Name="咱爹老忙 " Type="文本" />
+                                  </Control>
+                                </Control>
+                              </Control>
+                            </Control>
+                            <Control Name=" " Type="窗格" />
+                          </Control>
+                        </Control>
+                        <Control Name="你去买点行啊 " Type="列表项目">
+                          <Control Name=" " Type="窗格">
+                            <Control Name="理性守护者 " Type="按钮" />
+                            <Control Name=" " Type="窗格">
+                              <Control Name=" " Type="窗格">
+                                <Control Name=" " Type="窗格">
+                                  <Control Name=" " Type="窗格">
+                                    <Control Name="你去买点行啊 " Type="文本" />
+                                  </Control>
+                                </Control>
+                              </Control>
+                            </Control>
+                            <Control Name=" " Type="窗格" />
+                          </Control>
+                        </Control>
+                        <Control Name="啥呀 " Type="列表项目">
+                          <Control Name=" " Type="窗格">
+                            <Control Name=" " Type="窗格" />
+                            <Control Name=" " Type="窗格">
+                              <Control Name=" " Type="窗格">
+                                <Control Name=" " Type="窗格">
+                                  <Control Name=" " Type="窗格">
+                                    <Control Name="啥呀 " Type="文本" />
+                                  </Control>
+                                </Control>
+                              </Control>
+                            </Control>
+                            <Control Name="Coca Cola " Type="按钮" />
+                          </Control>
+                        </Control>
+                        <Control Name="八九喔 " Type="列表项目">
+                          <Control Name=" " Type="窗格">
+                            <Control Name="理性守护者 " Type="按钮" />
+                            <Control Name=" " Type="窗格">
+                              <Control Name=" " Type="窗格">
+                                <Control Name=" " Type="窗格">
+                                  <Control Name=" " Type="窗格">
+                                    <Control Name="八九喔 " Type="文本" />
+                                  </Control>
+                                </Control>
+                              </Control>
+                            </Control>
+                            <Control Name=" " Type="窗格" />
+                          </Control>
+                        </Control>
+                        <Control Name="线盒 " Type="列表项目">
+                          <Control Name=" " Type="窗格">
+                            <Control Name="理性守护者 " Type="按钮" />
+                            <Control Name=" " Type="窗格">
+                              <Control Name=" " Type="窗格">
+                                <Control Name=" " Type="窗格">
+                                  <Control Name=" " Type="窗格">
+                                    <Control Name="线盒 " Type="文本" />
+                                  </Control>
+                                </Control>
+                              </Control>
+                            </Control>
+                            <Control Name=" " Type="窗格" />
+                          </Control>
+                        </Control>
+                        <Control Name="昂 " Type="列表项目">
+                          <Control Name=" " Type="窗格">
+                            <Control Name=" " Type="窗格" />
+                            <Control Name=" " Type="窗格">
+                              <Control Name=" " Type="窗格">
+                                <Control Name=" " Type="窗格">
+                                  <Control Name=" " Type="窗格">
+                                    <Control Name="昂 " Type="文本" />
+                                  </Control>
+                                </Control>
+                              </Control>
+                            </Control>
+                            <Control Name="Coca Cola " Type="按钮" />
+                          </Control>
+                        </Control>
+                        <Control Name="差多少啊 " Type="列表项目">
+                          <Control Name=" " Type="窗格">
+                            <Control Name=" " Type="窗格" />
+                            <Control Name=" " Type="窗格">
+                              <Control Name=" " Type="窗格">
+                                <Control Name=" " Type="窗格">
+                                  <Control Name=" " Type="窗格">
+                                    <Control Name="差多少啊 " Type="文本" />
+                                  </Control>
+                                </Control>
+                              </Control>
+                            </Control>
+                            <Control Name="Coca Cola " Type="按钮" />
+                          </Control>
+                        </Control>
+                        <Control Name="买八个行吗 " Type="列表项目">
+                          <Control Name=" " Type="窗格">
+                            <Control Name=" " Type="窗格" />
+                            <Control Name=" " Type="窗格">
+                              <Control Name=" " Type="窗格">
+                                <Control Name=" " Type="窗格">
+                                  <Control Name=" " Type="窗格">
+                                    <Control Name="买八个行吗 " Type="文本" />
+                                  </Control>
+                                </Control>
+                              </Control>
+                            </Control>
+                            <Control Name="Coca Cola " Type="按钮" />
+                          </Control>
+                        </Control>
+                        <Control Name="9:07 " Type="列表项目">
+                          <Control Name="9:07 " Type="文本" />
+                        </Control>
+                        <Control Name="你不去啊 " Type="列表项目">
+                          <Control Name=" " Type="窗格">
+                            <Control Name="理性守护者 " Type="按钮" />
+                            <Control Name=" " Type="窗格">
+                              <Control Name=" " Type="窗格">
+                                <Control Name=" " Type="窗格">
+                                  <Control Name=" " Type="窗格">
+                                    <Control Name="你不去啊 " Type="文本" />
+                                  </Control>
+                                </Control>
+                              </Control>
+                            </Control>
+                            <Control Name=" " Type="窗格" />
+                          </Control>
+                        </Control>
+                        <Control Name="不去了 " Type="列表项目">
+                          <Control Name=" " Type="窗格">
+                            <Control Name=" " Type="窗格" />
+                            <Control Name=" " Type="窗格">
+                              <Control Name=" " Type="窗格">
+                                <Control Name=" " Type="窗格">
+                                  <Control Name=" " Type="窗格">
+                                    <Control Name="不去了 " Type="文本" />
+                                  </Control>
+                                </Control>
+                              </Control>
+                            </Control>
+                            <Control Name="Coca Cola " Type="按钮" />
+                          </Control>
+                        </Control>
+                        <Control Name="写完这个 " Type="列表项目">
+                          <Control Name=" " Type="窗格">
+                            <Control Name=" " Type="窗格" />
+                            <Control Name=" " Type="窗格">
+                              <Control Name=" " Type="窗格">
+                                <Control Name=" " Type="窗格">
+                                  <Control Name=" " Type="窗格">
+                                    <Control Name="写完这个 " Type="文本" />
+                                  </Control>
+                                </Control>
+                              </Control>
+                            </Control>
+                            <Control Name="Coca Cola " Type="按钮" />
+                          </Control>
+                        </Control>
+                        <Control Name="[动画表情] " Type="列表项目">
+                          <Control Name=" " Type="窗格">
+                            <Control Name="理性守护者 " Type="按钮" />
+                            <Control Name=" " Type="窗格">
+                              <Control Name=" " Type="窗格">
+                                <Control Name=" " Type="窗格">
+                                  <Control Name=" " Type="窗格">
+                                    <Control Name=" " Type="按钮" />
+                                  </Control>
+                                </Control>
+                              </Control>
+                            </Control>
+                            <Control Name=" " Type="窗格" />
+                          </Control>
+                        </Control>
+                      </Control>
+                    </Control>
+                  </Control>
+                  <Control Name=" " Type="窗格">
+                    <Control Name=" " Type="窗格" />
+                    <Control Name=" " Type="窗格">
+                      <Control Name=" " Type="窗格">
+                        <Control Name=" " Type="工具栏">
+                          <Control Name="表情(Alt+E) " Type="按钮" />
+                          <Control Name="发送文件 " Type="按钮" />
+                          <Control Name="截图(Shift + Alt + A) " Type="按钮" />
+                          <Control Name="截图(Shift + Alt + A) " Type="按钮" />
+                          <Control Name="聊天记录 " Type="按钮" />
+                          <Control Name=" " Type="窗格" />
+                          <Control Name=" " Type="窗格" />
+                          <Control Name="语音聊天 " Type="按钮" />
+                          <Control Name="视频聊天 " Type="按钮" />
+                        </Control>
+                        <Control Name=" " Type="窗格">
+                          <Control Name="理性守护者 " Type="编辑" />
+                        </Control>
+                        <Control Name=" " Type="窗格">
+                          <Control Name=" " Type="窗格">
+                            <Control Name=" " Type="窗格" />
+                          </Control>
+                          <Control Name=" " Type="窗格" />
+                          <Control Name=" " Type="窗格">
+                            <Control Name="发送(S) " Type="按钮" />
+                          </Control>
+                        </Control>
+                      </Control>
+                    </Control>
+                  </Control>
+                </Control>
+              </Control>
+            </Control>
+          </Control>
+        </Control>
+        <Control Name=" " Type="工具栏">
+          <Control Name="置顶 " Type="按钮" />
+          <Control Name="最小化 " Type="按钮" />
+          <Control Name="最大化 " Type="按钮" />
+          <Control Name="关闭 " Type="按钮" />
+        </Control>
+      </Control>
+    </Control>
+  </Control>
+</Control>
