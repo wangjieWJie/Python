@@ -32,7 +32,7 @@ while True:
     if red_point.Name:
         # 点击进入会话
         red_point.Click(simulateMove = False)   # simulateMove: 模拟移动，模拟鼠标移动过去的轨迹
-        #读取最后两条消息
+        #读取最后一条消息
         last_msg = wx.ListControl(Name = '消息').GetChildren()[-1].Name
         print(last_msg)
 
